@@ -7,3 +7,4 @@
 5. passing data between siblings,parent,children
 6. unit testing
 7. polyfills
+8. override (hasOwnProperty);
