@@ -14,3 +14,4 @@
 12. SEO
 13. MVC feature design ,what is view 
 14. Microservices
+15. two way vs one way binding how it works
