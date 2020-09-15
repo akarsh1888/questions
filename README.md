@@ -1,7 +1,7 @@
 # questions
 
 1.  composition vs inheritance
-2.  single threaded ->>>> then how it achieves concurrency
+2.  single threaded ->>>> then how it achieves concurrency >>>> how node js handles multiple requests
 3.  splice vs slice
 4.  virtual DOM, how it works
 5.  passing data between siblings,parent,children
