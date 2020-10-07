@@ -17,3 +17,6 @@
 15. two way vs one way binding how it works
 16. system design questions
 17. monolithic vs microservices
+18. creating a calendar
+19. nosql vs sql
+20 generating a pdf
