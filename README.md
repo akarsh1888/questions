@@ -19,4 +19,5 @@
 17. monolithic vs microservices
 18. creating a calendar
 19. nosql vs sql
-20 generating a pdf
+20. generating a pdf
+21. caching & logging for both client side vs server side
