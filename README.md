@@ -21,3 +21,5 @@
 19. nosql vs sql
 20. generating a pdf
 21. caching & logging for both client side vs server side
+22. HTML5 vs CSS3 
+(latest input type tags + how to apply linear gradient on text + without transition how to achieve same thing)
