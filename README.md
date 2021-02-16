@@ -24,3 +24,5 @@
 22. HTML5 vs CSS3 
 (latest input type tags + how to apply linear gradient on text + without transition how to achieve same thing)
 23. drag and drop nested li ..make any node the child or the parent
+24. what are different lifecycle methods,when to use any and why
+25. remove one element from an array ie. use split slice etc.
