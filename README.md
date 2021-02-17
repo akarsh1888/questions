@@ -26,3 +26,4 @@
 23. drag and drop nested li ..make any node the child or the parent
 24. what are different lifecycle methods,when to use any and why
 25. remove one element from an array ie. use split slice etc.
+26. n number of nested promises calling ie. tell who will execute first
