@@ -1,12 +1,11 @@
 // Bind Polyfill
 
-// Define an object
+/*
 const obj = {
   name: "Akarsh",
   mission: "2023",
 };
 
-// Define a function that takes three parameters and logs them
 function Test(param1, param2, param3) {
   console.log(this, param1, param2, param3);
 }
@@ -30,13 +29,69 @@ Function.prototype.myBind = function (...args) {
   };
 };
 
-// Create a bound version of the Test function with the context obj and pre-bound arguments
 const sample = Test.myBind(obj, "Argument1", "Argument2");
 
-// Call the bound version of the function with an additional argument
 sample("Argument3");
 
-/****************************************************************************************
- *
- *
- *****************************************************************************************/
+// ****************************************************************************
+// ****************************************************************************
+// ****************************************************************************
+
+
+// Debouncing vs Throttling
+
+// Deboucne Function
+
+function debounce(func, timeout, ...args) {
+  let timeoutId;
+  return function () {
+    const context = this;
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(function () {
+      func.apply(context, args);
+    }, timeout);
+  };
+}
+
+const Test1 = (param1, param2) => {
+  console.log(param1, param2);
+};
+const debouncedFunction = debounce(Test1, 5000, "arg1", "arg2");
+
+window.addEventListener("click", debouncedFunction);
+
+
+// Throttle Function
+
+function throttle(func, timeout, ...args) {
+  // TimeBased Approach
+  //   let startingTime = new Date().getTime();
+  //   return function () {
+  //     let currentTime = new Date().getTime();
+  //     if (currentTime - startingTime >= timeout) {
+  //       func.apply(this, args);
+  //       startingTime = new Date().getTime();
+  //     }
+  //   };
+
+  //    Flag Based Approach
+  let hasTimeIntervalPassed = true;
+  return function () {
+    if (hasTimeIntervalPassed) {
+      func.apply(this, args);
+      hasTimeIntervalPassed = false;
+      setTimeout(() => {
+        hasTimeIntervalPassed = true;
+      }, timeout);
+    }
+  };
+}
+
+const Test1 = (param1, param2) => {
+  console.log(param1, param2);
+};
+
+const throttledFunction = throttle(Test1, 5000, "arg1", "arg2");
+window.addEventListener("click", throttledFunction);
+
+*/
