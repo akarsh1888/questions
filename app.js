@@ -94,4 +94,35 @@ const Test1 = (param1, param2) => {
 const throttledFunction = throttle(Test1, 5000, "arg1", "arg2");
 window.addEventListener("click", throttledFunction);
 
+
+// ****************************************************************************
+// ****************************************************************************
+// ****************************************************************************
+
+
+// Call vs Apply vs Bind
+
+let obj1 = {
+    firstName: "Akarsh",
+    lastName: "Srivastava",
+};
+
+let obj2 = {
+    firstName: "Sachin",
+    lastName: "Srivastava",
+};
+
+let printFullName = function (param1, param2) {
+    console.log(
+        this.firstName + " " + this.lastName + " " + param1 + " " + param2
+        );
+    };
+    
+    printFullName.call(obj1, "arg1", "arg2");
+    
+    printFullName.apply(obj2, ["arg1", "arg2"]);
+    
+    const printFullNameBindedCopy = printFullName.bind(obj2, "arg1", "arg2");
+    printFullNameBindedCopy();
+    
 */
