@@ -31,9 +31,44 @@ function App() {
 
 export default App;
 
+const loader = withLoading(MyComponent)
 
 // **********************************************************************************************
 // *********************************************************************************************
 // ********************************************************************************************
 
 */
+
+import { useState } from "react";
+
+const App = () => {
+  const [name, setName] = useState("");
+  const [waitlist, setWaitlist] = useState([]);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setWaitlist([...waitlist, name]);
+    setName("");
+  };
+
+  return (
+    <div>
+      <form onSubmit={onSubmit}>
+        <label>
+          Name:
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </label>
+        <button type="submit">Add to Waitlist</button>
+      </form>
+      <ol>
+        {waitlist.map((name) => (
+          <li>{name}</li>
+        ))}
+      </ol>
+    </div>
+  );
+};
