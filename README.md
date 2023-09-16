@@ -36,84 +36,141 @@
 
 <!-- General  -->
 
-1. Pipeline Experience you have ?
-2. Agile Methodologies is it followed ?
-3. local storage vs session storage vs cookie (lifecycle)
-4. What are the security measures you take while building an application
-5. Have you used JWT ? Advantages of It
-6. Explain current project and it's architecture
+1. Pipeline Experience you have?
+2. Agile Methodologies: Is it followed?
+3. Local Storage vs Session Storage vs Cookie (Lifecycle)
+4. What are the security measures you take while building an application?
+5. Have you used JWT? Advantages of It
+6. Explain the current project and its architecture
 7. SPA vs MPA
-8. What is web accessibility
-9. What is caching mechanism and service workers
-10. How do you optimize your website for better load times
-11. What is minification
-12. when a response is sent from server to browser , what gets loaded first , html , css or js ?
-13. code splitting and how do we perform ?
+8. What is web accessibility?
+9. What is caching mechanism and service workers?
+10. How do you optimize your website for better load times?
+11. What is minification?
+12. When a response is sent from the server to the browser, what gets loaded first: HTML, CSS, or JS?
+13. Code splitting and how do we perform it?
 
 <!-- HTML -->
 
 1. HTML Entities
 2. Block vs Inline Elements
-3. Anchor Tag
-4. Image is an inline or block level element?
-5. Semantic HTML/Elements
-6. Why we need meta tags in a website?
-7. CSS vs CSS3
-8. Latest Input Type Tags + How to Apply Linear Gradient on Text + Achieving the Same Effect Without Transition
-9. HTTP Request Life Cycle
-
+3. Semantic HTML/Elements
+4. Why we need meta tags in a website?
+5. CSS vs CSS3
+6. Latest Input Type Tags
+7. HTTP Request Life Cycle
 
 <!-- CSS -->
 
 1. Explain Box Model
-2. Padding vs Margin
-3. Different CSS Selectors
-4. display:none vs visibility:hidden
-5. Centering a Div in a body tag
-6. Z-Index
-7. Explain Flexbox Property
-8. Different Positioning Properties
-9. CSS Specificity
-10. rem vs em Properties
+2. Different CSS Selectors
+3. CSS Specificity
+4. Padding vs Margin
+5. display:none vs visibility:hidden
+6. CSS Modules and What is SCSS
+7. rem vs em vs px Properties
+8. Centering a Div in a body tag
+9. Align three divs into three equal parts on the screen (Using Flexbox)
+10. Explain Flexbox Property
 11. Flexbox vs Grid
-12. CSS Modules and What is SCSS
-13. What are Mixins and How Are They Helpful in CSS?
-14. Different Ways to Make a Website Responsive
+12. Z-Index
+13. How to Make a Website Responsive using CSS
+14. Different Positioning Properties
+15. What are Mixins and How Are They Helpful in CSS?
+16. How to center align an image inside a div
+17. How to Apply a Linear Gradient on Text + Achieving the Same Effect Without Transition
 
 <!-- Javascript -->
 
 1. Explain different design patterns (Todo)
-2. var vs let vs const (with help of hoisting)
-3. closure
-4. explain some ES6/ES7 features
-5. spread vs rest
-6. typeof null == undefined (typeof null === undefined)
-7. primitive vs non-primitive data type
-8. variable vs function hoisting
-9. console.log([..."sandip"], 1+"2"), is string iterable?
-10. slice vs splice
-11. DeepCopy vs ShallowCopy (Different ways to copy an object)
-12. Function Currying
-13. Arrow vs Traditional function
-14. Event Bubbling and how to prevent it
-15. event delegation
-16. call vs apply vs bind
-17. Polyfill (forEach)
-18. Object.freeze
-19. map vs filter
-20. reduce vs sort
-21. Validate an email using JS
-22. IIFE'S
-23. coercion vs hoisting
-24. Uses of (Promise.all vs Promise.any)
-25. What are Pure Functions
-27. BOM vs DOM
-27. Event Loop
-28. Angular vs React
-29. what is dangerouslySetInnerHTML and why I should use it?
+2. var vs let vs const (with the help of hoisting)
+3. Closure
+4. Is closure automatically garbage collected, and is it a good thing or a bad thing?
+5. Explain some ES6/ES7 features
+6. Spread vs Rest
+7. typeof null == undefined (typeof null === undefined)
+8. Primitive vs Non-primitive data types
+9. Variable vs Function Hoisting
+10. `console.log([..."sandip"], 1+"2")`: Is a string iterable?
+11. slice vs splice
+12. DeepCopy vs ShallowCopy (Different ways to copy an object)
+13. Function Currying
+14. Arrow vs Traditional function
+15. Event Bubbling and how to prevent it
+16. Event delegation
+17. call vs apply vs bind
+18. Polyfill (forEach, map)
+19. Object.freeze
+20. map vs filter
+21. reduce vs sort
+22. Validate an email using JS
+23. IIFE's (Immediately Invoked Function Expressions)
+24. Coercion vs Hoisting
+25. Uses of (Promise.all vs Promise.any vs Promise.race)
+26. What are Pure Functions
+27. BOM (Browser Object Model) vs DOM (Document Object Model)
+28. Event Loop
+29. Angular vs React
+30. What is dangerouslySetInnerHTML and why should I use it?
 30. Find the even number [1,2,3,4,5,6,7,8,9]
     [1, 2,3, 4, 5,6,7,8,9].filter(item => item % 2 === 0)
     [1, 2,3, 4, 5,6,7,8,9].map(item => item % 2)
+31. What are generator functions ?
+32. OOPS in js
+33. Nested Properties missing eg. const personalName = data?.level1?.name?.personalName ?? 'Default Value';
+34. add "John" after the "Hello" word in the string "Hello How are you?
+35. const arr =[1,2,3] 
+    arr.foo = 4;
+    for(let i in arr){
+    console.log(i)
+    }
+36. let i;
+    for(i=0; i<3; i++){
+      const log = () => {
+        console.log(i)
+      }
+      setTimeout(log, 100);
+    }
+37. new Promise(res => res(2))
+    .then((v) => {
+    console.log(v);
+    return v * 2;
+    }).then((v) => {
+    console.log(v);
+    return v * 2;
+    }).finally((v) => {
+    console.log(v);
+    return v * 2;
+    }).then((v) => {
+    console.log(v);
+    })
+38. sort this array alphabetically
+var arr = [{name:"Palak"},
+{name:"Akarsh"},
+{name:"Parag"},
+{name:"Saif"},
+{name:"Manish"}
+]
+39.  Implement cache/memoize function
+eg. const clumsyProduct = (num1, num2) => {
+  for(let i = 1; i <= 10000000; i++){}
+    return num1 * num2;
+}
+
+const myMemoize = (fn, context) => {
+  const res = {};
+  return (...args) => {
+    var argsCache = JSON.stringify(args);
+    if(!res[argsCache]) {
+      res[argsCache] = fn.call(context || this, ...args)
+    }
+    return res[argsCache];
+  }
+}
+
+
+
+
 
 <!-- React -->
 
@@ -141,6 +198,7 @@
 22. why reducer is called pure function
 23. controlled vs uncontrolled components
 25. what are refs in react and show an example
+26. is setState async operation ?
 
 <!-- Node -->
 
@@ -150,6 +208,36 @@
 <!-- DataBase -->
 
 1. MySQL VS MongoDB
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+ -->
+
+
+
+
+
+
+
+
+
 
 
 
@@ -214,6 +302,82 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+<!-- 
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+ -->
+
+
+
+
+
+# HTML
+### 1.HTML Entities
+
+- special codes used in HTML to represent `reserved character`,`special meaning characters`
+- `&lt;` represents `<`
+- `&copy;` represents `©`
+
+### 2.Block vs Inline Elements
+
+`Block`
+- stacking vertically , take up the full available width of their parent container, pushing other elements vertically below them
+- eg. `<div>, <p>, <h1> to <h6>, <ul>, <ol>, <li>`
+- used to structure the layout of a webpage into sections or containers
+
+`InLine`
+- do not create new block 
+- occupy as much width as necessary for their content
+- eg.`<span>, <a>, <strong>, <em>, <img>, <br>`
+
+For example, you might use inline elements to make text bold `<strong>`, italic `<em>`, create hyperlinks `<a>`, or insert images `<img>` within a paragraph
+
+### 3.Semantic HTML
+
+- describe web content structure in a way that is both human-readable and machine-understandable
+- improves accessibility and SEO of a web page but also helps maintain a clear and organized structure for web content
+- eg. `<header>`,`<nav`,`<main>`,`<article>`,`<section>`,`<aside>(sidebars, advertisements)`, `<footer>(metadata, copyright information, contact details)`
+
+### 4.Why we need meta tags in a website?
+
+- SEO: improve page's ranking in search engine results, `<title>, <meta name="description">, <meta name="keywords">`
+- Browser Display: character encoding, viewport settings, `<meta charset="UTF-8">, <meta name="viewport">`
+- Social Media Sharing: `<meta property="og:image">`
+
+
+
+
+
+
+
+
+
+
+<!-- 
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+ -->
+
+
+
+
+
+
+
+
+
 # CSS
 ### Different Positioning Properties
 
@@ -246,6 +410,31 @@
 - preserves its space, and makes it invisible
 - other elements may interact with it
 - user can not interact with it
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+ -->
+
+
+
+
+
+
+
+
 
 
 
@@ -397,6 +586,28 @@ const { name, age, ...rest } = { name: 'Alice', age: 30, gender: 'female' };
 // Using the rest parameter in array destructuring
 const [first, second, ...rest] = [1, 2, 3, 4, 5];
 ```
+
+
+
+
+
+
+
+
+<!-- 
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+ -->
+
+
+
+
+
+
+
+
+
 
 
 
@@ -626,6 +837,39 @@ HTTP requests, database interaction, working with web sockets, and handling brow
 - Redux design to handle sync actions only
 - Control Order of Execution: intercept, modify, or cancel actions before they reach the reducers, which can be useful for handling validation, authentication, and more
 
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Exercises:
 
 
@@ -671,9 +915,24 @@ function Test(menuStructure) {
 
 }
 
+2. Output Question:
 
-2. 
-Certainly! Design patterns can be applied in JavaScript without any specific framework or library like React. Here are some common design patterns and how they can be used in plain JavaScript:
+var myObject = {
+    foo: "bar",
+    func: function () {
+        var self = this;
+        console.log("outer func:  this.foo= " + this.foo); // bar
+        console.log("outer func:  self.foo= " + self.foo); // bar
+        (function () {console.log("inner func:  this.foo= " + this.foo); // window
+        console.log("inner func:  self.foo= " + self.foo); // window
+        }());
+    }
+};
+myObject.func();
+
+
+
+3. Certainly! Design patterns can be applied in JavaScript without any specific framework or library like React. Here are some common design patterns and how they can be used in plain JavaScript:
 
 1. **Singleton Pattern**:
    - **Use Case**: Managing a single instance of an object throughout your JavaScript application.
