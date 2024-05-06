@@ -62,11 +62,11 @@
 
 <!-- CSS -->
 
-1. Explain Box Model
+1. Explain Box Model (actual width/height might be different from what you think)
 2. Different CSS Selectors
 3. CSS Specificity
 4. Padding vs Margin
-5. display:none vs visibility:hidden
+5. display:none vs visibility:hidden vs opacity:0
 6. CSS Modules and What is SCSS
 7. rem vs em vs px Properties
 8. Centering a Div in a body tag
@@ -79,6 +79,7 @@
 15. What are Mixins and How Are They Helpful in CSS?
 16. How to center align an image inside a div
 17. How to Apply a Linear Gradient on Text + Achieving the Same Effect Without Transition
+18. Responsive vs Adaptive design
 
 <!-- Javascript -->
 
@@ -97,7 +98,7 @@
 13. Function Currying
 14. Arrow vs Traditional function
 15. Event Bubbling and how to prevent it
-16. Event delegation
+16. Event Delegation
 17. call vs apply vs bind
 18. Polyfill (forEach, map)
 19. Object.freeze
@@ -118,16 +119,16 @@
 31. What are generator functions ?
 32. OOPS in js
 33. Nested Properties missing eg. const personalName = data?.level1?.name?.personalName ?? 'Default Value';
-34. add "John" after the "Hello" word in the string "Hello How are you?
-35. const arr =[1,2,3] 
+34. add "John" after the "Hello" word in the string "Hello How are you ?"
+35. const arr = [1,2,3] 
     arr.foo = 4;
     for(let i in arr){
     console.log(i)
     }
 36. let i;
-    for(i=0; i<3; i++){
+    for (i=0; i<3; i++) {
       const log = () => {
-        console.log(i)
+        console.log(i);
       }
       setTimeout(log, 100);
     }
@@ -199,6 +200,9 @@ const myMemoize = (fn, context) => {
 23. controlled vs uncontrolled components
 25. what are refs in react and show an example
 26. is setState async operation ?
+27. Pure Components, Presentational Components, Dumb Components
+28. When you're passing a function as a prop to the child component,how to avoid child component to re-render
+29. Library vs Framework
 
 <!-- Node -->
 
@@ -412,8 +416,91 @@ For example, you might use inline elements to make text bold `<strong>`, italic 
 - user can not interact with it
 
 
+### Inheritance
+Occurs when an inheritable CSS property (i.e. color) is not set directly on an element, the parent chain is traversed until a value for that property is found.
+
+```html
+<div class="blue">
+<p>Lorem Ipsum </p> 
+</div>
+```
+```css
+/* paragraph will get blue color through inheritance */
+.blue {
+  color: blue;
+}
+```
+
+### Specificity
+The algorithm used by browsers to determine which CSS declaration should be applied. Each selector has a calculated weight. The most specific weight wins. <br> Specificity calculations come into play when multiple selectors are trying to style the same element.<br>If there are two or more declarations providing different property values for the same element, the declaration with the most specific selector wins.<br>
+
+#### `Comparsion is done from left to right`
+ID Selector: 1-0-0 <br>
+Class Selector: 0-1-0 <br>
+Type Selector: 0-0-1 <br>
 
 
+```css
+/* Case 1: paragraph will get red color 
+as in this case by inheritance it will not traverse the tree as we have a type slector on the paragraph itself
+*/
+p {
+color: red
+}
+.blue{
+color: blue;
+}
+
+/* Case 2: paragraph will get blue color as it is a stronger specifier */
+p {
+color: red
+}
+.blue p{
+color: blue;  
+/* specifty: 0-1-1 */
+}
+```
+```html
+<!-- Question -->
+<ul class="list">
+<li class="list-item"><a id="link-1" href="#">Link1</a></li>
+<!-- color is Blue -->
+<!-- Link 1 and Link 3 is targeted by three declarations 0-0-1 (1st), 0-0-1 (2nd), 0-1-1 (4th)-->
+<!-- 4th wins -->
+<li class="list-item"><a id="link-2" href="#">Link2</a></li> 
+<!-- color is Red -->
+<!-- Link 2 is targeted by three declarations 1-1-1 (3rd), 1-0-1 (5th), 1-1-1 (6th) -->
+<!-- 6th wins  as it is lower in order-->
+<li class="list-item"><a id="link-3" href="#">Link3</a></li>
+<!-- color is Blue -->
+</ul>
+```
+```css
+a {
+  color: inherit; 
+  /* 0-0-1  */
+}
+ul {
+  color: red;
+  /* 0-0-1 */
+}
+li.list-item #link-2 {
+  color: yellow;
+  /* 1-1-1  */
+}
+ul.list {
+  color: blue;
+  /* 0-1-1  */
+}
+li #link-2 { 
+  /* 1-0-1 */
+  color: orange;
+}
+ul.list #link-2 {
+  /* 1-1-1 */
+  color: red;
+}
+```
 
 
 
@@ -498,10 +585,21 @@ const debounce = (func, delay) => {
 
 const debouncedSearch = debounce(searchFunction, 300)
 ```
+```js
+const infiniteCurrying = (a) => {
+  return (b) => {
+    if(b) return infiniteCurrying(a+b);
+    return a
+  }
+}
+infiniteCurrying(2)(3)(4)(5)(6)
+```
 ### 3. Arrow Function vs Traditional Function
 - Lexical this Binding
 - No Arguments Object
 - No Binding of this, super, new.target, and prototype (Can not be used as constructor function)
+- Traditional Function: Has its own this value, which is dynamically scoped.
+- Arrow Function: Inherits the this value from the surrounding scope.
 ```js
 function traditionalFunction() {
   console.log(arguments); // The arguments object is available
@@ -586,6 +684,13 @@ const { name, age, ...rest } = { name: 'Alice', age: 30, gender: 'female' };
 // Using the rest parameter in array destructuring
 const [first, second, ...rest] = [1, 2, 3, 4, 5];
 ```
+
+### Type Coercion
+
+Type coercion refers to the automatic conversion of values from one data type to another, <br>
+typically performed during operations or comparisons involving different data types. By using Type Coercion, <br>
+JavaScript attempts to make the data types compatible to complete the operation or comparison.
+
 
 
 
@@ -1172,3 +1277,123 @@ person1.sayHello(); // Outputs: Hello, my name is Alice and I'm 30 years old.
 person2.sayHello(); // Outputs: Hello, my name is Bob and I'm 25 years old.
 
 
+
+
+
+
+var x = {name: "JOHN",};
+var x;
+console.log(x); 
+==============================================
+p = {
+name: "JOHN",
+display: function() {
+  console.log(this.name);
+  }
+}
+
+var x = p.display;
+x(); 
+========================================
+apply and bind
+
+fun1 = fun1.bind(this);
+
+
+
+Function.prototype.bind = function(cont,...args){
+const func = this;
+return ()=> func.(cont,...args)
+}
+===========================================
+base = {
+  name: "JOHN",
+  display: function() {
+    console.log(this.name);
+    }
+  }
+  
+    
+  child =  {};
+  child.__proto__ = base;
+  
+  
+  console.log(child.name);
+  child.name = 'Alex';
+  console.log(base.name);
+  console.log(child.name);  
+======================================
+
+=======================iterators vs generator============
+=======================forOf vs forEach ============================
+
+ 
+[16:36] Shashank Mukherjee [HCL]
+var a = 10;
+
+function xyz() {
+
+console.log('First Console-', a);
+
+var a = 20;
+
+console.log('Second Console-', a);
+
+}
+
+xyz();
+
+console.log('Third Console-', a);
+[16:37] Shashank Mukherjee
+var myObject = {
+
+		foo: "bar",
+
+		func: function() {
+
+			var self = this;
+
+			console.log("outer1"+this.foo); 
+
+			console.log("outer2"+self.foo); 
+
+			(function() {
+
+				console.log("inner1"+this.foo); 
+
+				console.log("inner2"+self.foo); 
+
+			}());
+
+		}
+
+	};
+
+	myObject.func();
+[16:38] Shashank Mukherjee
+const props = [
+
+  { id: 1, name: 'John'},
+
+  { id: 2, name: 'Jack'},
+
+  { id: 3, name: 'Tom'}
+
+];
+ 
+const [,, { name }] = props;
+
+console.log(name);
+[16:42] Shashank Mukherjee
+// find duplicate characters
+ 
+const strChars = 'banana';
+ 
+function duplicateChars() {};
+ 
+console.log(duplicateChars(strChars)); // [a, n]
+
+
+  
+  
+  
