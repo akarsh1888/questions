@@ -25,7 +25,7 @@
 24. remove one element from an array ie. use split slice etc.
 25. n number of nested promises calling ie. tell who will execute first
 
-<!-- DSA -->
+<!-- DSA --->
 
 1. Max no. of repeating characters in a string
 2. Move all zero's to the end in an array
